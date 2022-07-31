@@ -1,0 +1,78 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+main {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.canvases {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+}
+
+.camera {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: black;
+}
+
+.camera video {
+    width: 100%;
+    height: 100%;
+}
+
+.tools-outer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.tools {
+    margin: 0 auto;
+    background: rgba(30, 30, 30, 0.8);
+    border-radius: 20px 20px 0 0;
+}
+
+
+.tools .collapse-button {
+    display: flex;
+    justify-content: center;
+    height: 20px;
+}
+
+.tools .collapse-button button {
+    width: 80%;
+    color: rgba(255, 255, 255, 0.4);
+    background: none;
+    border: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.tools .buttons {
+    display: flex;
+}
+
+.tools .buttons button {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    border-radius: 100vh;
+}
