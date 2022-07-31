@@ -1,6 +1,6 @@
 const video = document.getElementById("video");
 
-navigator.mediaDevices.getUserMedia({ video: true })
+navigator.mediaDevices.getUserMedia({ video: true, facingMode: { exact: "environment" } })
 .then(function(stream) {
     video.srcObject = stream;
 })
@@ -8,5 +8,7 @@ navigator.mediaDevices.getUserMedia({ video: true })
   /* エラーを処理 */
 });
 
-
+function pause() {
+    video.pause();
+}
 
