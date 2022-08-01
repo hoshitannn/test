@@ -1,0 +1,181 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    color: #292d32;
+    font-family: 'M PLUS 1 Code', sans-serif;
+}
+
+#fullscreen {
+    background: whitesmoke;
+}
+
+.fullscreen-inner {
+    transform: rotate(180deg);
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 25px;
+    padding: 0 5px;
+    color: white;
+    background: #1971fe;
+    font-size: 15px;
+}
+
+header p {
+    margin: 0;
+}
+
+main > div {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: calc(100vh - 25px);
+}
+
+main > div video {
+    width: 100%;
+}
+
+main p {
+    text-align: center;
+    font-size: 15pt;
+}
+
+.standby {
+    display: flex;
+}
+
+.standby img {
+    width: 50%;
+}
+
+.amount {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    height: 70px;
+    border-bottom: 1px solid #292d32;
+}
+
+.amount .type {
+    margin-right: 20px;
+    padding: 8px 11px;
+    color: white;
+    background: #292d32;
+    border-radius: 8px;
+}
+
+.amount-inner {
+    display: flex;
+    align-items: center;
+}
+
+.amount-inner #amount {
+    margin-right: 20px;
+    font-size: 35pt;
+}
+
+.amount-inner .unit {
+    font-size: 15pt;
+}
+
+.insert-card img {
+    width: 50%;
+}
+
+.insert-card .card-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(80% - 70px);
+}
+
+.enter-pc .enter-pc-inner {
+    width: 100%;
+    height: calc(80% - 70px);
+}
+
+.enter-pc .display {
+    width: 100%;
+    height: 200px;
+    padding: 20px 0;
+}
+
+.enter-pc .display-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 10px 0;
+    background: white;
+    border-radius: 10px;
+}
+
+.enter-pc .display-inner p {
+    margin: 0;
+    padding: 10px 0;
+    font-size: 13pt;
+}
+
+.enter-pc .display-inner #passcode {
+    padding: 10px 0;
+    font-size: 30pt;
+    font-weight: bold;
+}
+
+.enter-pc .keyboard {
+    width: 80%;
+    height: calc(100% - 200px);
+    margin: 0 auto;
+}
+
+.enter-pc .keyboard .container {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 10px;
+    row-gap: 35px;
+    height: 100%;
+}
+
+.enter-pc .keyboard button {
+    color: white;
+    background: #4b4b4b;
+    border: 0;
+    border-radius: 8px;
+    box-shadow: 0 10px #212121;
+    font-family: 'M PLUS 1 Code', sans-serif;
+    font-weight: bold;
+    font-size: 18pt;
+}
+
+.enter-pc .keyboard button:active {
+    transform: translateY(10px);
+    box-shadow: none;
+}
+
+.enter-pc .keyboard .c {
+    background: #de1600;
+    box-shadow: 0 10px #b30300;
+}
+
+.enter-pc .keyboard .f {
+    background: #14a61b;
+    box-shadow: 0 10px #0d8633;
+}

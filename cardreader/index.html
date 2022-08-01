@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Card Reader</title>
+        <link rel="stylesheet" href="stylesheet.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1+Code&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div id="fullscreen">
+            <div class="fullscreen-inner">
+                <header>
+                    <p id="status" onclick="setup()">Conect</p>
+                    <p id="date"></p>
+                </header>
+                <main>
+                    <div class="standby">
+                        <img src="img/logo.jpg" alt="logo">
+                        <button onclick="getMedia()">CAMERA</button>
+                    </div>
+                    <div class="loading">
+                        <video src="video/loading.mp4" autoplay muted loop></video>
+                        <p>通信中</p>
+                    </div>
+                    <div class="finish">
+                        <video src="video/finish.mp4" autoplay muted></video>
+                        <p>完了</p>
+                    </div>
+                    <div class="insert-card">
+                        <div class="amount">
+                            <span class="type">一括</span>
+                            <div class="amount-inner">
+                                <span id="amount">1,000</span>
+                                <span class="unit">円</span>
+                            </div>
+                        </div>
+                        <div class="card-image">
+                            <img src="img/card.png" alt="card">
+                            <p>カードを挿入してください</p>
+                        </div>
+                    </div>
+                    <div class="enter-pc">
+                        <div class="amount">
+                            <span class="type">一括</span>
+                            <div class="amount-inner">
+                                <span id="amount">1,000</span>
+                                <span class="unit">円</span>
+                            </div>
+                        </div>
+                        <div class="enter-pc-inner">
+                            <div class="display">
+                                <div class="display-inner">
+                                    <p>暗証番号を入力してください</p>
+                                    <span id="passcode">・・・・</span>
+                                </div>
+                            </div>
+                            <div class="keyboard">
+                                <div class="container">
+                                        <button>7</button><button>8</button><button>9</button>
+                                        <button>4</button><button>5</button><button>6</button>
+                                        <button>1</button><button>2</button><button>3</button>
+                                        <button class="c"></button><button>0</button><button class="f"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+        <script src="reader.js"></script>
+    </body>
+</html>
