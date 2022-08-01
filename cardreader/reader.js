@@ -43,17 +43,28 @@ function setup() {
     connection.onclose = function() {}
 }
 
+let track;
+
 function getMedia() {
     navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
     .then(function(stream) {
-        const track = stream.getVideoTracks()[0];
-        track.applyConstraints({
-            advanced: [{ torch: true }]
-        });
+        track = stream.getVideoTracks()[0];
     })
     .catch(function(err) {
         statusElem.innerText = "Error";
         headerElem.style.background = "#da0b0b";
+    });
+}
+
+function lightOn() {
+    track.applyConstraints({
+        advanced: [{ torch: true }]
+    });
+}
+
+function lightOff() {
+    track.applyConstraints({
+        advanced: [{ torch: false }]
     });
 }
 
