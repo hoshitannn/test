@@ -15,7 +15,7 @@ function setup() {
 
     statusElem.innerText = "Conecting...";
 
-    connection = new WebSocket("ws://192.168.11.16:13254");
+    connection = new WebSocket("wss://192.168.11.16:13254");
     // http://device-manager.scratch.mit.edu/
 
     //コネクションが接続された時の動き
