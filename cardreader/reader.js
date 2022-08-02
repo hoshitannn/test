@@ -11,10 +11,12 @@ const enterPcElem = document.querySelector(".enter-pc");
 
 function setup() {
     document.getElementById("fullscreen").requestFullscreen();
+    getMedia();
 
     statusElem.innerText = "Conecting...";
 
     connection = new WebSocket("ws://192.168.11.16:13254");
+    // http://device-manager.scratch.mit.edu/
 
     //コネクションが接続された時の動き
     connection.onopen = function(e) {
