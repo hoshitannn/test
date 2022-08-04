@@ -112,6 +112,7 @@ function scanCardLoop() {
         connection.send(r);
     }
     connection.send("end-img");
+    console.log("finish");
 }
 
 function writeDate() {
