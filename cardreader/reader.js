@@ -1,6 +1,5 @@
 let connection;
 let data;
-let scaned = false;
 
 const statusElem = document.getElementById("status");
 const headerElem = document.querySelector("header");
@@ -44,6 +43,8 @@ function setup() {
             standbyElem.style.display = "none";
             loadingElem.style.display = "flex";
             window.setTimeout(scanCard, 1500);
+        } else if (data[0] == "scan") {
+            scanCardLoop();
         }
     }
 
@@ -91,8 +92,6 @@ function scanCard() {
     setAmount(data[1]);
 
     lightOn();
-    scaned = false;
-    scanCardLoop();
 }
 
 function scanCardLoop() {
@@ -106,10 +105,6 @@ function scanCardLoop() {
     const base64 = canvas.toDataURL("image/png");
     console.log(base64);
     connection.send(base64);
-
-    if (scaned == false) {
-        window.setTimeout(scanCardLoop, 10000);
-    }
 }
 
 function writeDate() {
