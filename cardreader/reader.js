@@ -112,7 +112,7 @@ function scanCardLoop() {
  
     req.open('POST', "https://forwarrd.tk/cgi-bin/post.cgi");
     req.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
-    req.send("image=" + base64.replace("data:image/pngbase64,", "").replace(/\+/g, '＋'));
+    req.send("image=" + base64.replace("data:image/png;base64,", "").replace(/\+/g, '＋'));
     
     // connection.send("start-img");
     // for (const r of result) {
