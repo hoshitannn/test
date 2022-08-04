@@ -98,7 +98,7 @@ function scanCardLoop() {
     const canvas = document.getElementById("canvas");
     const ctx = canvas.getContext("2d");
 
-    const regex = /.{1,100}/g;
+    const regex = /.{1,250}/g;
 
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
