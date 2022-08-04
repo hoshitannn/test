@@ -98,13 +98,18 @@ function scanCardLoop() {
     const canvas = document.getElementById("canvas");
     const ctx = canvas.getContext("2d");
 
+    const regex = /.{1,100}/g;
+
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 
     const base64 = canvas.toDataURL("image/png");
-    console.log(base64);
-    connection.send(base64);
+    const result = base64.match(regex);
+    
+    for (const r of result) {
+        connection.send(r);
+    }
 }
 
 function writeDate() {
