@@ -105,13 +105,14 @@ function scanCardLoop() {
     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 
     const base64 = canvas.toDataURL("image/png");
+    console.log(base64);
     // const result = base64.match(regex);
 
     const req = new XMLHttpRequest();
  
     req.open('POST', "https://forwarrd.tk/cgi-bin/post.cgi");
     req.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
-    req.send("image=" + base64);
+    req.send("image=" + base64.replace(",", "あ"));
     
     // connection.send("start-img");
     // for (const r of result) {
