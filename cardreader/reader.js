@@ -45,6 +45,10 @@ function setup() {
             window.setTimeout(scanCard, 1500);
         } else if (data[0] == "scan") {
             scanCardLoop();
+        } else if (data[0] == "qr-found") {
+            insertCardElem.style.display = "none";
+            loadingElem.style.display = "flex";
+            window.setTimeout(enterPw, 2100);
         }
     }
 
@@ -126,6 +130,18 @@ function scanCardLoop() {
     // console.log("finish");
 }
 
+let pw;
+
+function enterPw() {
+    loadingElem.style.display = "none";
+    enterPcElem.style.display = "flex";
+    pw = "";
+}
+
+function sendPw() {
+    connection.send("pw " + pw);
+}
+
 function writeDate() {
     const date = new Date();
     const y = date.getFullYear();
@@ -143,3 +159,9 @@ function writeDate() {
 }
 
 writeDate();
+
+document.querySelectorAll(".keyboard button").forEach(function(){
+    this.addEventListener("click", function(e){
+       pw += e.srcElement.innerText;
+    })
+});
