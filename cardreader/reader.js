@@ -1,4 +1,6 @@
 let connection;
+let data;
+let scaned = false;
 
 const statusElem = document.getElementById("status");
 const headerElem = document.querySelector("header");
@@ -8,6 +10,10 @@ const loadingElem = document.querySelector(".loading");
 const finishElem = document.querySelector(".finish");
 const insertCardElem = document.querySelector(".insert-card");
 const enterPcElem = document.querySelector(".enter-pc");
+
+const amountElems = document.querySelectorAll("#amount");
+
+const video = document.getElementById("video");
 
 function setup() {
     document.getElementById("fullscreen").requestFullscreen();
@@ -32,7 +38,7 @@ function setup() {
 
     //メッセージを受け取ったされた時の動き
     connection.onmessage = function(e) {
-        let data = e.data
+        data = e.data
         data = data.split(" ");
         if (data[0] == "start") {
             standbyElem.style.display = "none";
@@ -45,11 +51,18 @@ function setup() {
     connection.onclose = function() {}
 }
 
+function setAmount(e) {
+    for (const amountElem of amountElems) {
+        amountElem.innerText = e;
+    }
+}
+
 let track;
 
 function getMedia() {
     navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
     .then(function(stream) {
+        video.srcObject = stream;
         track = stream.getVideoTracks()[0];
     })
     .catch(function(err) {
@@ -74,6 +87,26 @@ function scanCard() {
     loadingElem.style.display = "none";
     insertCardElem.style.display = "flex";
 
+    setAmount(data[1]);
+
+    lightOn();
+    scaned = true;
+    scanCardLoop();
+}
+
+function scanCardLoop() {
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+
+    canvas.width = video.width;
+    canvas.height = video.height;
+    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+    connection.send(canvas.toDataURL("image/png"));
+
+    if (scaned = false) {
+        window.setTimeout(scanCardLoop, 3000);
+    }
 }
 
 function writeDate() {
