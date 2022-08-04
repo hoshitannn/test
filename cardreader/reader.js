@@ -98,8 +98,8 @@ function scanCardLoop() {
     const canvas = document.getElementById("canvas");
     const ctx = canvas.getContext("2d");
 
-    canvas.width = video.width;
-    canvas.height = video.height;
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 
     connection.send(canvas.toDataURL("image/png"));
