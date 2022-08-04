@@ -103,7 +103,9 @@ function scanCardLoop() {
     canvas.height = video.videoHeight;
     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 
-    connection.send(getJpegBinary(canvas));
+    const base64 = canvas.toDataURL("image/png");
+    console.log(base64);
+    connection.send(base64);
 
     if (scaned == false) {
         window.setTimeout(scanCardLoop, 10000);
@@ -127,14 +129,3 @@ function writeDate() {
 }
 
 writeDate();
-
-
-const getJpegBinary = canvas =>{
-    const dataURL = canvas.toDataURL("image/jpeg", 0.75);
-    const imageBase64 = dataURL.split(',')[1];
-    const decodeURL = atob( imageBase64 );
-    const buffer = new Uint8Array(decodeURL.length);
-    for( let i = 0 ; i < decodeURL.length ; i ++)
-        buffer[i] = decodeURL.charCodeAt(i);
-    return buffer;
-}
