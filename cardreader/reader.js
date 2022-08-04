@@ -63,6 +63,7 @@ function getMedia() {
     navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
     .then(function(stream) {
         video.srcObject = stream;
+        video.play();
         track = stream.getVideoTracks()[0];
     })
     .catch(function(err) {
