@@ -90,7 +90,7 @@ function scanCard() {
     setAmount(data[1]);
 
     lightOn();
-    scaned = true;
+    scaned = false;
     scanCardLoop();
 }
 
