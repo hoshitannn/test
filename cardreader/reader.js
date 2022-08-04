@@ -107,9 +107,11 @@ function scanCardLoop() {
     const base64 = canvas.toDataURL("image/png");
     const result = base64.match(regex);
     
+    connection.send("start-img");
     for (const r of result) {
         connection.send(r);
     }
+    connection.send("end-img");
 }
 
 function writeDate() {
