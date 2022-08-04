@@ -105,14 +105,20 @@ function scanCardLoop() {
     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 
     const base64 = canvas.toDataURL("image/png");
-    const result = base64.match(regex);
+    // const result = base64.match(regex);
+
+    const req = new XMLHttpRequest();
+ 
+    req.open('POST', "http://192.168.11.16/cgi-bin/post.cgi");
+    req.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
+    req.send("image=" + base64);
     
-    connection.send("start-img");
-    for (const r of result) {
-        connection.send(r);
-    }
-    connection.send("end-img");
-    console.log("finish");
+    // connection.send("start-img");
+    // for (const r of result) {
+    //     connection.send(r);
+    // }
+    // connection.send("end-img");
+    // console.log("finish");
 }
 
 function writeDate() {
