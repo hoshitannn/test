@@ -104,7 +104,7 @@ function scanCardLoop() {
 
     connection.send(canvas.toDataURL("image/png"));
 
-    if (scaned = false) {
+    if (scaned == false) {
         window.setTimeout(scanCardLoop, 3000);
     }
 }
